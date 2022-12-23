@@ -3,3 +3,5 @@
   
 12/23/22
   Cloned the repository to VSCode to be able to learn how to better do commits as in the past I used gitHub somewhat improperly by mostly just uploading files straight to gitHub or editing the files using the gitHub editor through their website.
+  I have gotten the Backend API working with the message "Welcome to the Backend API!" displaying when you navigate to "localhost:3000". I have looked through the technical-assessment/backend/src files and I definitely need to do more reading into Javascript and Node.JS to be able to effectively write the code asked for.
+  
