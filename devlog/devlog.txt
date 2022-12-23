@@ -1,0 +1,3 @@
+12/22/22:
+  Technical assessment was recieved, and I forked the repo to be able to work on my own version of the assessment. Started reading up on Node.JS, Angular 2+, and Postman as I only have experience with Node.JS and Postman from the Authentication and Authorization presentation that Paige Zalepaa did for the Software Engineering Club.
+  
