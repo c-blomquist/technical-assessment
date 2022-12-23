@@ -1,3 +1,5 @@
 12/22/22:
   Technical assessment was recieved, and I forked the repo to be able to work on my own version of the assessment. Started reading up on Node.JS, Angular 2+, and Postman as I only have experience with Node.JS and Postman from the Authentication and Authorization presentation that Paige Zalepaa did for the Software Engineering Club.
   
+12/23/22
+  Cloned the repository to VSCode to be able to learn how to better do commits as in the past I used gitHub somewhat improperly by mostly just uploading files straight to gitHub or editing the files using the gitHub editor through their website.
