@@ -1,6 +1,6 @@
 import express from 'express';
-import { QuestsDB } from '../../database/QuestsDB';
-import { Quest } from '../../types/Quests';
+import { QuestsDB } from '../../database/QuestsDB.js';
+import { Quest } from '../../types/Quests.js';
 
 export function questsRouter() {
     const router = express.Router();
@@ -10,6 +10,9 @@ export function questsRouter() {
 
     // TODO: Task 2
     //creating a quest for a hero
+    
+    
+    //this needs changing as it currently accepts the hero ID as part of the json body
     router.post('quests/:id/quests', (req, res) => {
         const body = req.body;
         const quest = new Quest(body);

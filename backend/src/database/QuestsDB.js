@@ -1,4 +1,4 @@
-import { Quest } from "../types/Quests";
+import { Quest } from "../types/Quests.js";
 
 export class QuestsDB {
     static instance = undefined;
@@ -17,7 +17,11 @@ export class QuestsDB {
         return this.quests;
     }
 
-    //Adds a new quest to the database
+    /**
+     * Adds a quest to the database
+     * 
+     * @param {Quest} quest The hero to add to the database
+     */
     createQuest(quest){
         this.quests.push(quest);
     }
