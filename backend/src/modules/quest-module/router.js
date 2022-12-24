@@ -10,14 +10,12 @@ export function questsRouter() {
 
     // TODO: Task 2
     //creating a quest for a hero
-    
-    
     //this needs changing as it currently accepts the hero ID as part of the json body
-    router.post('quests/:id/quests', (req, res) => {
+    router.post('/heroes/:id/quests', (req, res) => {
         const body = req.body;
         const quest = new Quest(body);
-        QuestsDB.getInstance.createHero(quest);
-        res.sendStatus(201)
+        QuestsDB.getInstance().createQuest(quest);
+        res.sendStatus(201);
     });
 
     // TODO: Task 3
