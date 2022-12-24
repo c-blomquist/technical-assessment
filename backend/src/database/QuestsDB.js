@@ -4,7 +4,10 @@ export class QuestsDB {
     static instance = undefined;
     quests = []; //Database array for storing quest objects
 
-    //Gets an instance of the database for quests
+    /**
+     * Gets an instance of the database for quests
+     * @returns {QuestsDB} This is an instance of QuestsDB
+     */
     static getInstance() {
         if(!this.instance){
             this.instance = new QuestsDB();
@@ -12,7 +15,11 @@ export class QuestsDB {
         return this.instance;
     }
 
-    //Gets all the quests currently in the database
+    /**
+     * Gets all the quests currently in the database
+     * 
+     * @returns {Quest[]} This is an array of Quests
+     */
     getQuests(){
         return this.quests;
     }
@@ -20,10 +27,11 @@ export class QuestsDB {
     /**
      * Adds a quest to the database
      * 
-     * @param {Quest} quest The hero to add to the database
+     * @param {Quest} quest The quest to add to the database
+     * @param {string} heroID The heroID to assign the quest to
      */
-    createQuest(quest){
-        this.quests.push(quest);
+    createQuest(quest, heroID){
+        this.quests.push(quest, heroID);
     }
 
 
