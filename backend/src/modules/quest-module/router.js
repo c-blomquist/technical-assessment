@@ -1,4 +1,5 @@
 import express from 'express';
+import { HeroesDB } from '../../database/HeroesDB.js';
 import { QuestsDB } from '../../database/QuestsDB.js';
 import { Quest } from '../../types/Quests.js';
 
@@ -18,17 +19,23 @@ export function questsRouter() {
     //getting quests for a hero
 
 
-    // TODO: Task 2
     /** 
-     * Creating a quest assigned to a specific heroID
+     * Task 2
+     * Checks to see if hero exists, then creates a quest assigned to that specific heroID
      */
-    //Updated to not need heroID in the json. However this does not check if the hero actually exists or not
     router.post('/heroes/:id/quests', (req, res) => {
         const heroID = req.params.id;
-        const body = req.body;
-        const quest = new Quest(body);
-        QuestsDB.getInstance().createQuest(quest, heroID);
-        res.sendStatus(201);
+        if(!HeroesDB.getInstance().getHero(heroID)){
+            res.sendStatus(404);
+        }
+        else{
+            const body = req.body;
+            body.heroID = heroID;
+
+            const quest = new Quest(body);
+            QuestsDB.getInstance().createQuest(quest);
+            res.sendStatus(201);
+        }
     });
 
     // TODO: Task 3

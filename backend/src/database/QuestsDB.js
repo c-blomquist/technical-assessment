@@ -28,10 +28,9 @@ export class QuestsDB {
      * Adds a quest to the database
      * 
      * @param {Quest} quest The quest to add to the database
-     * @param {string} heroID The heroID to assign the quest to
      */
-    createQuest(quest, heroID){
-        this.quests.push(quest, heroID);
+    createQuest(quest){
+        this.quests.push(quest);
     }
 
 

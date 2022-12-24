@@ -6,14 +6,13 @@ export class Quest{
     /**
      * Creates a new quest Object.
      * 
-     * @param {*} args An object with the Quest properties name and description
-     * @param {string} heroID The hero id to assign the quest to
+     * @param {*} args An object with the Quest properties
      */
-    constructor(args, heroID) {
+    constructor(args) {
         this.id = uuid();
         this.name = args.name || 'Starter Quest';
         this.description = args.description || 'Basic Quest for a Hero';
-        this.heroID = heroID;
+        this.heroID = args.heroID;
     }
 
 }
