@@ -10,13 +10,22 @@ export function questsRouter() {
      * Gets all Quests
      */
     router.get('/quests', (req, res) =>{
-        res.send(QuestsDB.getInstance().getQuests());
+        res.send(QuestsDB.getInstance().getQuestsAll());
     });
 
 
-
-    // TODO: Task 1
-    //getting quests for a hero
+    /**
+     * Task 1
+     * Gets all quests for a specified heroID
+     */
+    router.get('/heroes/:id/quests', (req, res) =>{
+        const heroID = req.params.id;
+        if(!HeroesDB.getInstance().getHero(heroID)){
+            res.sendStatus(404);
+        } else {
+            res.send(QuestsDB.getInstance().getQuests(heroID));
+        }
+    });
 
 
     /** 
@@ -39,7 +48,27 @@ export function questsRouter() {
     });
 
     // TODO: Task 3
-    //Updating a quest
+    /**
+     * Updating a quest by heroID and questID
+     * Checks if Hero and quest exists, and that their ids match
+     */
+    router.patch('/heroes/:heroId/quests/:questId', (req, res) => {
+        const heroID = req.params.heroId;
+        const questID = req.params.questId;
+        const body = req.body;
+
+        const hero = HeroesDB.getInstance().getHero(heroID);
+        const quest = QuestsDB.getInstance().getQuest(questID);
+
+        if(!hero || !quest){
+            res.sendStatus(404);
+        } else if(hero.id != quest.heroID){
+            res.sendStatus(400);
+        } else{
+            QuestsDB.getInstance().updateQuest(questID, body);
+            res.sendStatus(204);
+        }
+    });
 
     // TODO: Task 4
     //Deleting a quest

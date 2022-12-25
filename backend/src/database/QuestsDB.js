@@ -20,8 +20,27 @@ export class QuestsDB {
      * 
      * @returns {Quest[]} This is an array of Quests
      */
-    getQuests(){
+    getQuestsAll(){
         return this.quests;
+    }
+
+    /**
+     * Gets a specific quest by quest ID
+     *
+     * @param {string} id  
+     * @returns {Quest} A quest object with specified id
+     */
+    getQuest(id){
+        return this.quests.find(quest => quest.id === id);
+    }
+
+    /**
+     * Gets quests for a specified Hero
+     * @param {string} heroID The ID for hero to get quests from
+     * @returns {Quest[]} Array of all quests assigned to a hero by using "filter"
+     */
+    getQuests(heroID){
+        return this.quests.filter(quest => quest.heroID === heroID);
     }
 
     /**
@@ -32,6 +51,31 @@ export class QuestsDB {
     createQuest(quest){
         this.quests.push(quest);
     }
+
+    /**
+     * Updates a quest by heroID and questID
+     * @param {string} id The id of the quest to update
+     * @param {Partial<Quest>} questUpdates The quest object for updates
+     */
+    updateQuest(id, questUpdates){
+        const quest = this.getQuest(id);
+        this.deleteQuest(id);
+        quest.updateQuest(questUpdates);
+        this.createQuest(quest);
+    }
+
+    /**
+     * Deletes a quest by id
+     * 
+     * @param {string} id The id of the quest to delete
+     */
+    deleteQuest(id){
+        const index = this.quests.findIndex(quest => quest.id === id);
+        if(index >= 0){
+            this.quests.splice(index, 1);
+        }
+    }
+
 
 
 }
