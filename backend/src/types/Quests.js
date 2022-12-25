@@ -15,4 +15,17 @@ export class Quest{
         this.heroID = args.heroID;
     }
 
+    /**
+     * Updates the quest class with the new values
+     * 
+     * @param {Partial<Quest>} args Partial quest object
+     */
+    updateQuest(args){
+        if(args.name){
+            this.name = args.name;
+        }
+        if (args.description){
+            this.description = args.description;
+        }
+    }
 }
