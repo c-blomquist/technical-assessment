@@ -71,7 +71,28 @@ export function questsRouter() {
     });
 
     // TODO: Task 4
-    //Deleting a quest
+    /**
+     * Task 4
+     * 
+     * Deletes a quest by ID
+     * Checks if hero and quest exist, and that their ids match
+     */
+    router.delete('/heroes/:heroId/quests/:questId', (req, res) => {
+        const heroID = req.params.heroId;
+        const questID = req.params.questId;
+
+        const hero = HeroesDB.getInstance().getHero(heroID);
+        const quest = QuestsDB.getInstance().getQuest(questID);
+
+        if(!hero || !quest) {
+            res.sendStatus(404);
+        } else if (hero.id != quest.heroID) {
+            res.sendStatus(400);
+        } else {
+            QuestsDB.getInstance().deleteQuest(questID);
+            res.sendStatus(204);
+        }
+    })
 
     return router;
 }
