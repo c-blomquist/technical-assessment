@@ -16,3 +16,11 @@
 
 12/26/22
   Task 4 was pretty simple to implement functionality with using the Hero router as a guide and having done the hero/quest existing and checking the hero and quest ids to make sure they were matching in Task 3.
+
+12/27/22
+  After having implemented all 4 tasks for the backend, I then went to add in tests for the quests router. I have never used Jest or Supertest before, so I was able to use the provided documentation to learn more about themm:
+  https://www.npmjs.com/package/supertest?activeTab=readme
+  https://jestjs.io/docs/asynchronous
+  https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/ 
+  Furthermore, I also had been using "=>" due to it being located in all the given hero functions, but I honestly was not totally sure of the meaning of the symbol and was able to find this resource to learn about how it is just to signify a function: https://stackoverflow.com/questions/41702205/what-does-this-symbol-mean-in-javascript. 
+  I also struggled with the delete test as it would return a 404 instead of a 400 when testing for the heroID matching with the quest, and I eventually did realize that this is because we would delete the quest during testing beforehand, so I needed to check for that before checking on deleting a quest. Now there are 2 passing test suites, and 21 tests to pass, and all are succesful. 
