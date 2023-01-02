@@ -24,3 +24,9 @@
   https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/ 
   Furthermore, I also had been using "=>" due to it being located in all the given hero functions, but I honestly was not totally sure of the meaning of the symbol and was able to find this resource to learn about how it is just to signify a function: https://stackoverflow.com/questions/41702205/what-does-this-symbol-mean-in-javascript. 
   I also struggled with the delete test as it would return a 404 instead of a 400 when testing for the heroID matching with the quest, and I eventually did realize that this is because we would delete the quest during testing beforehand, so I needed to check for that before checking on deleting a quest. Now there are 2 passing test suites, and 21 tests to pass, and all are succesful. 
+
+1/1/23
+  I had been starting to look into the Angular framework and how it functioned throughout the past dew days, with the greater emphasis on it starting today. This has been proving more difficult than expected though as I do not have any experience with Angular or really any other framweork as my past experience is mostly just with simple html/javascript and then for my COSC412 project my group ended up wanting to use PHP with XAMPP for the backend services. Currently I have been using these resources to learn more about Angular and how it functions, and it does seem very beneficial to use due to how the components work and making it easy to build upon the framwork. These resources came from the link for Angular withing the frontend readME file:
+  https://angular.io/guide/understanding-angular-overview.
+  https://www.youtube.com/watch?v=qxchrt04bTA ("Introduction to Angular" found as part of the documentation on angular's website).
+  https://angular.io/tutorial/tour-of-heroes (very similar application to the one being sought after in this coding challenge).
