@@ -11,11 +11,16 @@ export class HeroesListComponent implements OnInit {
 
   heroes: Hero[] = [];
 
+
   constructor(private backend: BackendService) { }
 
   async ngOnInit(): Promise<void> {
     // Gets a list of heroes to display
     this.heroes = await this.backend.getHeroes();
+  }
+
+  selectHero() { 
+    console.log(this.heroes[0].id)
   }
 
 }
