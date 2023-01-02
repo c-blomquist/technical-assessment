@@ -1,8 +1,12 @@
-<h1>Hero List</h1>
+<h1>Select a Hero from the list:</h1>
 <ul>
     <!--Displays a list of hero names-->
-    <li *ngFor="let hero of heroes">{{ hero.name }}
-        <button (click)="selectHero()">Select</button>
+    <li *ngFor="let hero of heroes">
+        <button (click)="selectHero(hero.id)">{{ hero.name }}</button>
     </li> 
-    
+
+    <p>Selected Hero's Name: {{ result?.name }}</p>
+    <p>Selected Hero's Class: {{ result?.class }}</p>
+    <p>Selected Hero's Level: {{ result?.level }}</p>
+
 </ul>

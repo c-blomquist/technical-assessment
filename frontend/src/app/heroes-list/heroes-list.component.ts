@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { BackendService } from '../services/backend.service';
 import { Hero } from '../types/Hero';
 
@@ -10,7 +11,7 @@ import { Hero } from '../types/Hero';
 export class HeroesListComponent implements OnInit {
 
   heroes: Hero[] = [];
-
+  result: Hero | undefined;
 
   constructor(private backend: BackendService) { }
 
@@ -19,8 +20,10 @@ export class HeroesListComponent implements OnInit {
     this.heroes = await this.backend.getHeroes();
   }
 
-  selectHero() { 
-    console.log(this.heroes[0].id)
+  selectHero(heroID: string) {
+    this.result = this.heroes.find(hero => {
+      return hero.id === heroID;
+    })
   }
 
 }
